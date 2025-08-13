@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yono Premium v8 - The Ultimate Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">YONO DUMMY v8</div>
+        <nav id="mainNav" class="main-nav hidden">
+            <a href="#" class="nav-link active" onclick="showView('gamesView')">Games</a>
+            <a href="#" class="nav-link" onclick="showView('missionsView')">Missions</a>
+            <a href="#" class="nav-link" onclick="showView('leaderboardView')">Leaderboard</a>
+            <a href="#" class="nav-link" onclick="showView('profileView')">Profile</a>
+        </nav>
+        <div class="header-right">
+            <button id="themeBtn" class="sound-btn">🌙</button>
+            <button id="soundBtn" class="sound-btn">🔊</button>
+            <div class="nav-guest" id="guestNav"><button onclick="showLoginModal()">Login / Register</button></div>
+            <div class="nav-user hidden" id="userNav"><!-- User info --></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="gamesView" class="view active">
+            <h2 class="section-title">All Games</h2>
+            <div class="game-grid" id="gameGrid">
+                <div class="game-card" data-game-name="Aviator"><img src="https://i.ibb.co/3k3wTfJ/aviator-game.jpg" alt="Aviator"><h3>Aviator</h3></div>
+                <div class="game-card" data-game-name="Multiplier"><img src="https://i.ibb.co/kHnBfC3/graph-game.png" alt="Multiplier"><h3>Multiplier</h3></div>
+                <div class="game-card" data-game-name="Blackjack"><img src="https://i.ibb.co/L5BwzVb/blackjack.png" alt="Blackjack"><h3>Blackjack</h3></div>
+                <div class="game-card" data-game-name="Super Slots"><img src="https://i.ibb.co/nMS31nS/slots.jpg" alt="Slots"><h3>Super Slots</h3></div>
+            </div>
+        </section>
+        <section id="missionsView" class="view hidden"><!-- Missions grid --></section>
+        <section id="leaderboardView" class="view hidden"><!-- Leaderboard table --></section>
+        <section id="historyView" class="view hidden"><!-- History table --></section>
+        
+        <section id="profileView" class="view hidden">
+            <h2 class="section-title">My Profile</h2>
+            <div class="profile-container">
+                <!-- Profile Header, Stats, Avatars from V7 -->
+                <div class="referral-section">
+                    <h4>My Referral Program</h4>
+                    <p>Invite friends and earn rewards!</p>
+                    <div class="referral-code-wrapper">
+                        <span id="referralCode"></span>
+                        <button onclick="copyReferralCode()">Copy</button>
+                    </div>
+                    <div class="referral-stats">
+                        <span>Friends Joined: <b id="referralCount">0</b></span>
+                        <span>Total Rewards: <b id="referralRewards">₹0</b></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- All Modals go here, including the new Multiplier modal -->
+    <div class="modal hidden" id="multiplierModal">
+        <div class="modal-content multiplier-modal-content">
+            <span class="close-btn" onclick="hideModal(this.parentElement.parentElement)">&times;</span>
+            <h2>Multiplier</h2>
+            <div class="multiplier-play-area">
+                <canvas id="multiplierChart"></canvas>
+                <div id="multiplierDisplay" class="multiplier-display">1.00x</div>
+            </div>
+            <div id="multiplierMessage" class="game-message">Place your bet!</div>
+            <div class="multiplier-controls">
+                <input type="number" id="multiplierBet" placeholder="Bet Amount" value="100">
+                <button id="multiplierStartBtn" onclick="startMultiplierGame()">Place Bet</button>
+                <button id="multiplierCashOutBtn" onclick="cashOutMultiplier()" disabled>Cash Out</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Live Chat Widget -->
+    <div id="chatWidget" class="chat-widget">
+        <div class="chat-header" onclick="toggleChat()">Live Chat 💬</div>
+        <div id="chatBody" class="chat-body hidden">
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader" class="loader-overlay hidden"><div class="loader-spinner"></div></div>
+    <div id="toast" class="toast"></div>
+    <!-- ... audio tags ... -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
