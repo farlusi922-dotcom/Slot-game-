@@ -1,0 +1,30 @@
+/* All styles from V7 are assumed to be here, with the following additions/changes */
+/* :root variables, body, header, nav, games, modals, profile, missions, etc. */
+
+/* NEW: Multiplier Game Styles */
+.multiplier-modal-content { width: 700px; }
+.multiplier-play-area { height: 300px; background-color: var(--primary-bg); border-radius: 10px; margin-bottom: 20px; position: relative; }
+.multiplier-display { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5em; font-weight: 700; color: var(--accent-color); opacity: 0.8; }
+#multiplierChart { width: 100% !important; height: 100% !important; }
+
+/* NEW: Live Chat Widget Styles */
+.chat-widget { position: fixed; bottom: 20px; right: 20px; width: 320px; z-index: 1001; }
+.chat-header { background-color: var(--action-color); color: white; padding: 12px; border-radius: 8px 8px 0 0; cursor: pointer; font-weight: 600; }
+.chat-body { background-color: var(--secondary-bg); height: 400px; display: flex; flex-direction: column; border-radius: 0 0 8px 8px; }
+.chat-messages { flex-grow: 1; padding: 10px; overflow-y: auto; display: flex; flex-direction: column-reverse; }
+.chat-message { margin-bottom: 8px; }
+.chat-message b { color: var(--accent-color); }
+.chat-message.user { text-align: right; }
+.chat-message.user b { color: #28a745; }
+.chat-input-area { display: flex; padding: 10px; border-top: 1px solid var(--primary-bg); }
+.chat-input-area input { flex-grow: 1; border: 1px solid var(--primary-bg); background-color: var(--primary-bg); color: var(--text-color); padding: 8px; border-radius: 5px; }
+.chat-input-area button { font-size: 0.9em; padding: 8px 12px; margin-left: 5px; }
+
+/* NEW: Referral Section Styles */
+.referral-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--primary-bg); }
+.referral-code-wrapper { display: flex; justify-content: center; align-items: center; background-color: var(--primary-bg); padding: 10px; border-radius: 5px; margin: 15px 0; }
+.referral-code-wrapper span { font-size: 1.2em; font-weight: 600; letter-spacing: 2px; margin-right: 15px; }
+.referral-stats { display: flex; justify-content: space-around; }
+.referral-stats b { color: var(--accent-color); }
+
+/* All other styles from previous versions */
